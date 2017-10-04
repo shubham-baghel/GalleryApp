@@ -1,0 +1,12 @@
+.gallery-content{
+    padding-top: 60px;
+}
+
+ul { padding: 0; width: 1200px; margin: 20px}
+li { display: inline;}
+
+.tn{
+    margin: 6px;
+    border: 4px solid #eee;
+    box-shadow: #555 1px 1px 8px 1px;
+}

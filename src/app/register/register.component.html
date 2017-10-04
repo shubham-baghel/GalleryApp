@@ -1,0 +1,86 @@
+<div class='main-content'>
+    <div class="container">
+        <div class="row main">
+            <div class="main-login main-center">
+            <h5>Sign up once and watch any of our free demos.</h5>
+                <form #userForm ="ngForm" (ngSubmit) = "onSubmit()" class="" method="post" action="#">
+                    
+                    <div class="form-group">
+                        <label for="name" class="cols-sm-2 control-label">Your Name</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="name" required [(ngModel)]="model.name"  placeholder="Enter your Name" #name="ngModel"/>
+                                <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                                    Name is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="email" class="cols-sm-2 control-label">Your Email</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="email" id="email" required [(ngModel)]="model.email"  placeholder="Enter your Email" #email="ngModel"/>
+                                <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+                                    Email is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="username" class="cols-sm-2 control-label">Username</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" name="username" id="username" required [(ngModel)] ="model.userName"  placeholder="Enter your Username" #userName = "ngModel"/>
+                                <div [hidden]="userName.valid || userName.pristine" class="alert alert-danger">
+                                    UserName is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="password" class="cols-sm-2 control-label">Password</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                <input type="password" class="form-control" name="password" id="password" required [(ngModel)] = "model.password"  placeholder="Enter your Password" #password="ngModel" reverse="true"/>
+                                <div [hidden]="password.valid || (password.pristine && !userForm.submitted)" class="alert alert-danger">
+                                    Password is required
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+                        <div class="cols-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" [(ngModel)]="model.confirmPassword" required validateEqual="password" #confirmPassword="ngModel"   placeholder="Confirm your Password"/>
+                                <small [hidden]="confirmPassword.valid || (confirmPassword.pristine && !userForm.submitted)">
+                                    Password mismatch
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="form-group ">
+                        <button type="submit" class="btn btn-success" [disabled] = "!userForm.form.valid" >Submit</button>
+                    </div>
+                    
+                </form>
+                <div *ngIf= "submitted">
+                    User Registered SuccessFully.
+                    {{res}}
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
